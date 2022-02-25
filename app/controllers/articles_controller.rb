@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    redirect_to articles_url, notice: 'Article was successfully destroyed.'
+    redirect_to root_path, notice: 'Article was successfully destroyed.'
   end
 
   private
@@ -44,6 +44,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, photos: [])
     end
 end
