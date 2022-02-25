@@ -44,6 +44,8 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
+      # we need to permit everything that comes from the form
+      # if we add a new input in the form we need to permit it here
       params.require(:article).permit(:title, :body, photos: [])
     end
 end

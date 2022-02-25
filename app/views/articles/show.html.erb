@@ -10,9 +10,20 @@
 </p>
 
 <% @article.photos.each do |photo| %>
+  <%# the help 'cl_image_tag' will create the HTML img tag and set the SRC to the image url on cloudinary %>
   <%= cl_image_tag photo.key, width: 300, height: 200, crop: :fill %>
 <% end %>
 
+<!--
+<div class="card-category"
+     style="background-image:
+       linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+       => If you want to add an attached image as BACKGROUND IMAGE into any HTML element
+       => YOU MUST USE THIS HELPER -> 'cl_image_path' -> to retrive the image URL
+       url('<%#= cl_image_path @article.photo.key, height: 300, crop: :fill %>')">
+  Cool article
+</div>
+-->
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', root_path %>
